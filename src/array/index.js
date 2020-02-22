@@ -8,14 +8,17 @@ https://learn.javascript.ru/array-methods
  *  Создать и вернуть новый пустой массив массив
  */
 function createArray() {
-
+  let arr =[];
+  return arr;
 }
 
 /**
  * Создать и вернуть массив указанной длинны
  */
 function createEmptyArrayWithLength(len) {
-
+  let arr = [];
+  arr.lenght = len;
+  return arr;
 }
 
 /**
@@ -23,7 +26,8 @@ function createEmptyArrayWithLength(len) {
  * Вернуть измененный массив
  */
 function addToArray(arr, newValue) {
-
+  arr.push(newValue);
+  return arr;
 }
 
 /**
@@ -31,7 +35,8 @@ function addToArray(arr, newValue) {
  * Вернуть измененный массив
  */
 function addToStartArray(arr, newValue) {
-
+  arr.unshift(newValue);
+  return arr;
 }
 
 /**
@@ -40,7 +45,9 @@ function addToStartArray(arr, newValue) {
  *  второй - удаленный элемент массива
  */
 function removeFromArrayFirst(arr) {
-
+first=arr.shift();
+let arr1 = [arr, first]
+return arr1;
 }
 
 /**
@@ -49,8 +56,8 @@ function removeFromArrayFirst(arr) {
  *  венуть строку. Обход массива делать с помощью цикла for (let i=0; i<arr.length; i++)
  *  пример joinArray(['name', 'age'], "+") => 'name+age'
  */
-function joinArray(array, sep) {
-
+  function joinArray(array, sep) {
+  return array.join(sep);
 }
 
 /**
@@ -59,7 +66,7 @@ function joinArray(array, sep) {
  * @returns {*[]}
  */
 function copyArray(arr) {
-
+  return arr.slice();
 }
 
 /**
@@ -69,7 +76,7 @@ function copyArray(arr) {
  * @returns {any[] | string}
  */
 function mergeArray(arr, arr2) {
-
+return arr.cocncat(arr2);
 }
 
 /**
@@ -78,7 +85,7 @@ function mergeArray(arr, arr2) {
  * filterArray([1,3, 5, 2]) => [3,5]
  */
 function filterArray(arr) {
-
+arr.filter();
 }
 
 /**
@@ -101,7 +108,7 @@ function filterArrayCustom(arr, fn) {
  * Вернуть новый массив.
  */
 function reverseArray(arr) {
-
+  return arr.reverse();
 }
 
 /**
@@ -127,7 +134,11 @@ function sortArray(arr) {
  *  spliceArray([1,2,3,4,5,6,7,8,9]) -> [ [7, 8, 9], [4, 5, 6], [1, 2, 3] ]
  */
 function spliceArray(arr) {
-
+a = arr.slice(7, 9);
+b = arr.slice(4, 6);
+c = arr.slice(0, 3);
+let arr1 = [a, b, c];
+return arr1;
 }
 
 /**

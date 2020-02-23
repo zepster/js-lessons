@@ -130,11 +130,11 @@ test('objectToArray: перевести объект в массив', () => {
   const obj = { name: 'Max',  age: 22, city: 'FR' };
   const result = objectToArray(obj);
   expect(result.length).toEqual(3);
-  expect(result).toEqual([ [ 'name', 'Max' ], ['age' , '22'], [ 'city', 'Fr' ] ])
+  expect(result).toEqual([ [ 'name', 'Max' ], ['age' , '22'], [ 'city', 'FR' ] ])
 });
 
 test('arrayToObject: перевести массив в объект', () => {
-  const arr = [ [ 'name', 'Max' ], ['age' , '22'], [ 'city', 'Fr' ] ];
+  const arr = [ [ 'name', 'Max' ], ['age' , '22'], [ 'city', 'FR' ] ];
   const result = arrayToObject(arr);
   expect(Object.keys(result).length).toEqual(3);
   expect(result).toEqual({ name: 'Max',  age: 22, city: 'FR' })

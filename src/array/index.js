@@ -85,7 +85,9 @@ return arr.cocncat(arr2);
  * filterArray([1,3, 5, 2]) => [3,5]
  */
 function filterArray(arr) {
-arr.filter();
+let pos = arr.filter(function(number) {return number > 2}
+);
+return pos;
 }
 
 /**
@@ -161,7 +163,7 @@ function objectToArray(obj) {
  * @param arr
  */
 function arrayToObject(arr) {
-
+return Object.assign ({}, arr);
 }
 
 module.exports = {

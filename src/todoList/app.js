@@ -7,12 +7,6 @@ const inputElement = document
 const ulElement = document
   .querySelector('#tasks');
 
-const filterButtons = document
-  .querySelectorAll('button[action]');
-
-const totListElement = document
-  .querySelector('#toto-list');
-
 function onInputChange(event) {
   console.log(event.target.value);
 }
@@ -33,17 +27,6 @@ function createElement(elementName, elementText) {
   return newElement;
 }
 
-function onUlListClick(event) {
-  const target = event.target;
-  target.toggleAttribute('completed');
-}
-
-function onFilterButtonClick(event) {
-  const target = event.target;
-  const action = target.getAttribute('action');
-  totListElement.setAttribute('filter', action);
-}
-
 inputElement
   .addEventListener('input', onInputChange);
 
@@ -51,8 +34,3 @@ inputElement
 formElement
   .addEventListener('submit', onFormSubmit);
 
-ulElement.addEventListener('click', onUlListClick);
-
-filterButtons.forEach((buttonElement) => {
-  buttonElement.addEventListener('click', onFilterButtonClick);
-});

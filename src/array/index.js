@@ -76,7 +76,9 @@ function copyArray(arr) {
  * @returns {any[] | string}
  */
 function mergeArray(arr, arr2) {
-return arr.cocncat(arr2);
+let arr3= [];
+arr3 = arr.cocncat(arr2);
+return arr3;
 }
 
 /**
@@ -85,8 +87,7 @@ return arr.cocncat(arr2);
  * filterArray([1,3, 5, 2]) => [3,5]
  */
 function filterArray(arr) {
-let pos = arr.filter(function(number) {return number > 2}
-);
+let pos = arr.filter(item => item > 2);
 return pos;
 }
 
@@ -110,7 +111,12 @@ function filterArrayCustom(arr, fn) {
  * Вернуть новый массив.
  */
 function reverseArray(arr) {
-  return arr.reverse();
+  let newArr=[];
+
+  newArr = arr.concat();
+  newArr.reverse();
+
+  return newArr;
 }
 
 /**
@@ -120,7 +126,12 @@ function reverseArray(arr) {
  * @param arr
  */
 function sortArray(arr) {
+  let nArr=[];
 
+  nArr = arr.concat();
+  nArr.sort((person1, person2) => person2.age - person1.age);
+
+  return nArr;
 }
 
 /**

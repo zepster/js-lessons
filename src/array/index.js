@@ -103,7 +103,18 @@ return pos;
  * @param fn
  */
 function filterArrayCustom(arr, fn) {
+  let newArr = [];
+  let i=0;
 
+  for(let item of arr) {
+
+    if (fn(item)) {
+
+      newArr[i++] = item;
+
+    }
+  }
+  return newArr;
 }
 
 /**
@@ -147,11 +158,19 @@ function sortArray(arr) {
  *  spliceArray([1,2,3,4,5,6,7,8,9]) -> [ [7, 8, 9], [4, 5, 6], [1, 2, 3] ]
  */
 function spliceArray(arr) {
-a = arr.slice(7, 9);
-b = arr.slice(4, 6);
-c = arr.slice(0, 3);
-let arr1 = [a, b, c];
-return arr1;
+  let newArr=[];
+  let i = arr.length - 3,
+      u = arr.length;
+
+      for (let a=0; a < 3; a++) {
+        
+        newArr[a] = arr.slice(i,u);
+        i-=3;
+        u-=3;
+
+      }
+
+  return newArr;
 }
 
 /**
@@ -165,7 +184,7 @@ return arr1;
  * @param obj
  */
 function objectToArray(obj) {
-
+  return console.log(Object.values(obj));
 }
 
 /**
@@ -174,7 +193,7 @@ function objectToArray(obj) {
  * @param arr
  */
 function arrayToObject(arr) {
-return Object.assign ({}, arr);
+ return Object.fromEntries(arr);
 }
 
 module.exports = {

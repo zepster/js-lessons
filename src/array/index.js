@@ -231,7 +231,7 @@ function objectToArray(obj) {
  * @param arr
  */
 function arrayToObject(arr) {
- return Object.fromEntries(arr);
+
 }
 
 module.exports = {
@@ -250,4 +250,4 @@ module.exports = {
   spliceArray,
   objectToArray,
   arrayToObject,
-};
+  }}

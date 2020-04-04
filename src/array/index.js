@@ -85,8 +85,9 @@ function removeFromArrayFirst(arr) {
      else {
        str = str + (array[i] + sep);
    }
-    }
  return str;
+  }
+}
 
 /**
  * Создать и вернуть копию массива
@@ -250,4 +251,4 @@ module.exports = {
   spliceArray,
   objectToArray,
   arrayToObject,
-  }}
+}

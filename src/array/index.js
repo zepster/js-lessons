@@ -8,14 +8,17 @@ https://learn.javascript.ru/array-methods
  *  Создать и вернуть новый пустой массив массив
  */
 function createArray() {
-
+  let arr =[];
+  return arr;
 }
 
 /**
  * Создать и вернуть массив указанной длинны
  */
 function createEmptyArrayWithLength(len) {
-
+  let arr = [];
+  arr.length = len;
+  return arr;
 }
 
 /**
@@ -23,7 +26,8 @@ function createEmptyArrayWithLength(len) {
  * Вернуть измененный массив
  */
 function addToArray(arr, newValue) {
-
+  arr.push(newValue);
+  return arr;
 }
 
 /**
@@ -31,7 +35,17 @@ function addToArray(arr, newValue) {
  * Вернуть измененный массив
  */
 function addToStartArray(arr, newValue) {
-
+  let newArr = arr.slice();
+  let a = arr.length;
+  let b = a + 1;
+    arr.length = b;
+      for (let i = 0; i < a; i++)
+        {
+          arr[i+1] = newArr[i];
+          console.log(arr, newArr)
+        }
+        arr[0]=newValue;
+  return arr;
 }
 
 /**
@@ -40,7 +54,16 @@ function addToStartArray(arr, newValue) {
  *  второй - удаленный элемент массива
  */
 function removeFromArrayFirst(arr) {
-
+  let a = arr.length;
+  let first = arr[0]
+  for (let i = 1; i < a; i++)
+    {
+      arr[i-1] = arr[i];
+    }
+   b = a - 1;
+   arr.length = b;
+  let arr1 = [arr, first]
+  return arr1;
 }
 
 /**
@@ -49,8 +72,18 @@ function removeFromArrayFirst(arr) {
  *  венуть строку. Обход массива делать с помощью цикла for (let i=0; i<arr.length; i++)
  *  пример joinArray(['name', 'age'], "+") => 'name+age'
  */
-function joinArray(array, sep) {
-
+  function joinArray(array, sep) {
+    let str = ''
+    for (let i = 0; i < array.length; i++)
+    {
+     if(i == array.length - 1) {
+       str = str + array[i];
+     }
+     else {
+       str = str + (array[i] + sep);
+   }
+ return str;
+  }
 }
 
 /**
@@ -59,7 +92,11 @@ function joinArray(array, sep) {
  * @returns {*[]}
  */
 function copyArray(arr) {
-
+  let arrCopy = [];
+  let a = arr.length;
+    for (let i = 0; i < a; i++)
+    arrCopy[i] = arr[i];
+  return arrCopy;
 }
 
 /**
@@ -69,7 +106,10 @@ function copyArray(arr) {
  * @returns {any[] | string}
  */
 function mergeArray(arr, arr2) {
+  let arr3 = [];
+  arr3 = arr.concat(arr2);
 
+  return arr3;
 }
 
 /**
@@ -78,7 +118,8 @@ function mergeArray(arr, arr2) {
  * filterArray([1,3, 5, 2]) => [3,5]
  */
 function filterArray(arr) {
-
+let pos = arr.filter(item => item > 2);
+return pos;
 }
 
 /**
@@ -93,7 +134,15 @@ function filterArray(arr) {
  * @param fn
  */
 function filterArrayCustom(arr, fn) {
+  let  arrRes = []
+  let i = 0;
+  for(let item of arr) {
 
+    if (fn(item)) {
+      arrRes[i++] = item;
+    }
+  }
+  return arrRes;
 }
 
 /**
@@ -101,7 +150,12 @@ function filterArrayCustom(arr, fn) {
  * Вернуть новый массив.
  */
 function reverseArray(arr) {
+  let nArr=[];
 
+  nArr = arr.concat();
+  nArr.reverse();
+
+  return nArr;
 }
 
 /**
@@ -111,7 +165,10 @@ function reverseArray(arr) {
  * @param arr
  */
 function sortArray(arr) {
-
+  let newArr=[];
+  newArr = arr.concat();
+  newArr.sort((person1, person2) => person2.age - person1.age);
+  return newArr;
 }
 
 /**
@@ -127,7 +184,16 @@ function sortArray(arr) {
  *  spliceArray([1,2,3,4,5,6,7,8,9]) -> [ [7, 8, 9], [4, 5, 6], [1, 2, 3] ]
  */
 function spliceArray(arr) {
-
+  let newArr=[];
+  let i = arr.length - 3;
+    let u = arr.length;
+      for (let a=0; a < 3; a++) 
+      {
+        newArr[a] = arr.slice(i,u);
+        i-=3;
+        u-=3;
+      }
+  return newArr;
 }
 
 /**
@@ -141,8 +207,17 @@ function spliceArray(arr) {
  * @param obj
  */
 function objectToArray(obj) {
-
-}
+  let newArr    = [];
+    let keys    = [];
+    let values  = [];
+    keys   = Object.keys(obj);
+    values = Object.values(obj);
+    for (let i=0; i< keys.length; i++)
+    {
+      newArr[i] = new Array( String(keys[i]), String(values[i]) );
+    }
+    return nArr;
+  }
 
 /**
  * Перевести массив в объект
@@ -150,7 +225,14 @@ function objectToArray(obj) {
  * @param arr
  */
 function arrayToObject(arr) {
-
+  let newObj = {};
+  let value;
+  for (let i=0; i < arr.length; i++){
+    if (isNaN(+arr[i][1])) 
+    {value = arr[i][1]} else {value = +arr[i][1]}
+    newObj[arr[i][0]] = value;
+  }
+  return newObj;
 }
 
 module.exports = {
@@ -169,4 +251,4 @@ module.exports = {
   spliceArray,
   objectToArray,
   arrayToObject,
-};
+}
